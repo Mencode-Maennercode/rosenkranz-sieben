@@ -16,6 +16,15 @@
         padding: 12px 0;
     }
     
+    .logo-section {
+        gap: 12px;
+    }
+    
+    .header-logo {
+        width: 45px;
+        height: 45px;
+    }
+    
     .logo-name {
         font-size: 1.3rem;
     }
@@ -264,6 +273,15 @@
         justify-content: space-between;
         align-items: center;
         position: relative;
+    }
+    
+    .logo-section {
+        gap: 10px;
+    }
+    
+    .header-logo {
+        width: 40px;
+        height: 40px;
     }
     
     .logo-text {
@@ -894,6 +912,15 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+    }
+    
+    .logo-section {
+        gap: 8px;
+    }
+    
+    .header-logo {
+        width: 35px;
+        height: 35px;
     }
     
     .nav-toggle {

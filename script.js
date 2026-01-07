@@ -3,8 +3,21 @@ document.addEventListener('DOMContentLoaded', function() {
     const navToggle = document.querySelector('.nav-toggle');
     const navMobile = document.querySelector('.nav-mobile');
     const header = document.querySelector('.header');
+    const headerLogo = document.querySelector('.header-logo');
     const navLinks = document.querySelectorAll('.nav-desktop a, .nav-mobile a');
     const modalOverlay = document.querySelector('.modal-overlay');
+    const cookieBanner = document.querySelector('.cookie-banner');
+    
+    // Check cookie consent
+    if (!localStorage.getItem('cookieConsent')) {
+        cookieBanner.style.display = 'block';
+    }
+    
+    // Cookie consent functions
+    window.acceptCookies = function() {
+        localStorage.setItem('cookieConsent', 'true');
+        cookieBanner.style.display = 'none';
+    };
     
     // Mobile navigation toggle
     navToggle.addEventListener('click', function() {
@@ -73,6 +86,17 @@ document.addEventListener('DOMContentLoaded', function() {
                 header.classList.add('scrolled');
             } else {
                 header.classList.remove('scrolled');
+            }
+            
+            // Fade in header logo when leaving hero section
+            const heroSection = document.querySelector('.hero');
+            if (heroSection) {
+                const heroBottom = heroSection.offsetTop + heroSection.offsetHeight;
+                if (window.scrollY > heroBottom - 100) {
+                    headerLogo.classList.add('visible');
+                } else {
+                    headerLogo.classList.remove('visible');
+                }
             }
             
             let current = '';
@@ -150,9 +174,40 @@ document.addEventListener('DOMContentLoaded', function() {
             
             console.log('Form submitted:', { name, email, phone, message });
             
-            showMobileNotification('Vielen Dank für Ihre Nachricht! Ich melde mich so schnell wie möglich bei Ihnen.', 'success');
+            // Show loading state
+            const submitButton = contactForm.querySelector('button[type="submit"]');
+            const originalText = submitButton.textContent;
+            submitButton.textContent = 'Wird gesendet...';
+            submitButton.disabled = true;
             
-            contactForm.reset();
+            // Send data to PHP script via AJAX
+            const formData = new FormData(contactForm);
+            
+            fetch('sende_email.php', {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    showMobileNotification(data.message, 'success');
+                    contactForm.reset();
+                } else {
+                    showMobileNotification(data.message, 'error');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                showMobileNotification('Leider konnte Ihre Nachricht nicht gesendet werden. Bitte versuchen Sie es später erneut.', 'error');
+            })
+            .finally(() => {
+                // Reset button state
+                submitButton.textContent = originalText;
+                submitButton.disabled = false;
+            });
         });
     }
     
@@ -319,9 +374,9 @@ style.textContent = `
     }
     
     .header.scrolled {
-        background: rgba(255, 255, 255, 0.98);
+        background: #161c2c;
         backdrop-filter: blur(20px);
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
     }
     
     .text-shimmer {
