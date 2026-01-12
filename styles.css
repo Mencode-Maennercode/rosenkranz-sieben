@@ -111,8 +111,7 @@ img {
     object-fit: contain;
     margin-top: -5px;
     margin-left: -25px;
-    opacity: 0;
-    transition: opacity 1.5s ease-in-out;
+    opacity: 1;
 }
 
 .header-logo:hover {
@@ -321,19 +320,7 @@ img {
 }
 
 .hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image: url('MR.png');
-    background-size: 50% auto;
-    background-position: center;
-    background-repeat: no-repeat;
-    opacity: 0.15;
-    z-index: 1;
-    animation: fadeInBackground 3s ease-in-out;
+    display: none;
 }
 
 @keyframes fadeInBackground {
@@ -592,15 +579,15 @@ img {
 }
 
 .btn-primary {
-    background: var(--color-primary);
+    background: #161c2c;
     color: var(--color-white);
-    box-shadow: 0 4px 16px rgba(45, 64, 89, 0.2);
+    box-shadow: 0 4px 16px rgba(22, 28, 44, 0.2);
 }
 
 .btn-primary:hover {
-    background: var(--color-primary-dark);
+    background: #0a0f1a;
     transform: translateY(-3px) scale(1.02);
-    box-shadow: 0 12px 32px rgba(45, 64, 89, 0.35);
+    box-shadow: 0 12px 32px rgba(22, 28, 44, 0.35);
 }
 
 .btn-secondary {
@@ -1373,7 +1360,7 @@ img {
 }
 
 .conclusion-content {
-    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    background: #161c2c;
     color: var(--color-white);
     padding: 40px;
     border-radius: 15px;
@@ -1661,7 +1648,7 @@ img {
 .contact-icon {
     width: 50px;
     height: 50px;
-    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-sage) 100%);
+    background: #161c2c;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -1673,7 +1660,7 @@ img {
 
 .contact-item:hover .contact-icon {
     transform: scale(1.1);
-    box-shadow: 0 4px 15px rgba(167, 185, 164, 0.3);
+    box-shadow: 0 4px 15px rgba(22, 28, 44, 0.3);
 }
 
 @media (max-width: 768px) {

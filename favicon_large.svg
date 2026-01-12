@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 384" width="384" height="384">
+  <defs>
+    <style>
+      .logo-text { 
+        fill: #4A90E2; 
+        font-family: Arial, sans-serif; 
+        font-weight: bold; 
+        font-size: 168px;
+      }
+    </style>
+  </defs>
+  <!-- MR Logo text with transparent background -->
+  <text x="192" y="240" text-anchor="middle" class="logo-text">MR</text>
+</svg>

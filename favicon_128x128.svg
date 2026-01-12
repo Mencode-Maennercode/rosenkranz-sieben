@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+  <defs>
+    <style>
+      .logo-text { 
+        fill: #4A90E2; 
+        font-family: Arial, sans-serif; 
+        font-weight: bold; 
+        font-size: 56px;
+      }
+    </style>
+  </defs>
+  <text x="64" y="80" text-anchor="middle" class="logo-text">MR</text>
+</svg>
