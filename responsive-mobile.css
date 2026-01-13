@@ -404,32 +404,29 @@
     
     .hero-quote {
         margin: 25px auto 0;
-        padding: 25px 30px;
         max-width: 90%;
     }
     
-    .quote-mark {
-        font-size: 3rem;
-    }
-    
-    .quote-mark.opening {
-        top: 8px;
-        left: 15px;
-    }
-    
-    .quote-mark.closing {
-        bottom: 8px;
-        right: 15px;
-    }
-    
     .quote-text {
-        font-size: 1.1rem;
-        line-height: 1.5;
-        margin-bottom: 12px;
+        font-size: 1.2rem;
+        line-height: 1.6;
+        margin-bottom: 15px;
+        padding: 0 25px;
+    }
+    
+    .quote-text::before,
+    .quote-text::after {
+        font-size: 2.5rem;
     }
     
     .quote-author {
-        font-size: 0.8rem;
+        font-size: 0.75rem;
+        letter-spacing: 0.12em;
+    }
+    
+    .quote-author::before,
+    .quote-author::after {
+        margin: 0 8px;
     }
     
     /* Mobile-Optimized CTA Buttons */
@@ -1005,32 +1002,29 @@
     
     .hero-quote {
         margin: 20px auto 0;
-        padding: 20px 25px;
         max-width: 95%;
     }
     
-    .quote-mark {
-        font-size: 2.5rem;
-    }
-    
-    .quote-mark.opening {
-        top: 6px;
-        left: 12px;
-    }
-    
-    .quote-mark.closing {
-        bottom: 6px;
-        right: 12px;
-    }
-    
     .quote-text {
-        font-size: 1rem;
-        line-height: 1.4;
-        margin-bottom: 10px;
+        font-size: 1.1rem;
+        line-height: 1.5;
+        margin-bottom: 12px;
+        padding: 0 20px;
+    }
+    
+    .quote-text::before,
+    .quote-text::after {
+        font-size: 2rem;
     }
     
     .quote-author {
-        font-size: 0.75rem;
+        font-size: 0.7rem;
+        letter-spacing: 0.1em;
+    }
+    
+    .quote-author::before,
+    .quote-author::after {
+        margin: 0 6px;
     }
     
     .hero-buttons {
